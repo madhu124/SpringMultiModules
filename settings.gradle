@@ -1,0 +1,4 @@
+rootProject.name = 'springdocker'
+include ':MavenApp'
+
+project(':MavenApp').projectDir = "$rootDir/MavenApp" as File

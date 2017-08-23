@@ -1,0 +1,31 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+plugins { id "io.spring.dependency-management" version "1.0.0.RELEASE" }
+
+ext { springBootVersion = '1.5.6.RELEASE' }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+mainClassName = 'MavenExample.SpringdockerApplication'
+
+
+jar {
+    baseName = 'gradle'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter')
+
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
